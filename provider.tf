@@ -12,6 +12,10 @@ provider "aws" {
     profile = var.my_profile
 }
 terraform {
-  backend "s3" {
-  }
+backend "s3" {
+bucket = "aws-glue-target-poc-test"
+region = "eu-west-1"
+key = "dev/terraform.tfstate"
+shared_credentials_file = "/home/dmehta/.aws/credentials"
+}
 }
