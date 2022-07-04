@@ -1,0 +1,47 @@
+AWS_GLUE_JOBS:
+  - glue_shell_prdclsex_test_Job:
+      - Properties:
+        - Name: "glue_shell_prdclsex_test3"
+          Role: "arn:aws:iam::263407373860:role/grada_product_nonprd_glue_service_role_test"
+          Description: "Process Sales Pipeline data."
+          Connections: ["RMS10Connections"]
+          DefaultArguments: 
+            --job-language        : "python"
+            --TempDir             : "s3://grada-product-preprd-code-bucket/glue-apps/dev/price/temp/"
+            --bucket_name         : "aws-glue-target-poc-test"
+            --class               : "GlueApp"
+            --extra-py-files      : "s3://dpp-dev-glue-repository-test/cx_oracle_jar/cx_Oracle-8.3.0-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl,s3://dpp-dev-glue-repository-test/glue_python_libs/retl_component-1.0-py3-none-any.whl,s3://dpp-dev-glue-repository-test/glue_python_libs/python_dotenv-0.20.0-py3-none-any.whl,s3://dpp-dev-glue-repository-test/glue_python_libs/SQLAlchemy-1.4.35-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl,s3://dpp-dev-glue-repository-test/glue_python_libs/pandas-1.1.5-cp36-cp36m-manylinux1_x86_64.whl"
+            --extra-files         : "s3://dpp-dev-glue-repository-test/cx_oracle_jar/instantclient-basiclite-linuxx64_patched.zip"
+            --config_bucket_name  : "dpp-dev-glue-repository-test"
+            --config_file_path    : "rdw_etl_config/irm/org/"
+            --s3_file_path        : "RMS10PROMOTION/data/"
+            --s3_filename         : "prmschdm"        
+          MaxCapacity: 0.0625
+          MaxRetries: 0
+          Timeout: 2
+          Bucket_name: "aws-glue-assets-576277063358-eu-west-1-test"
+          File_name: "glue_shell_prdclsex_test3.py"
+
+  - glue_shell_prdclsex_test1_Job:
+      - Properties:
+        - Name: "glue_shell_prdclsex_test4"
+          Role: "arn:aws:iam::263407373860:role/grada_product_nonprd_glue_service_role_test"
+          Description: "Process Sales Pipeline data."
+          Connections: ["RMS10Connections"]
+          DefaultArguments: 
+            --job-language        : "python"
+            --TempDir             : "s3://grada-product-preprd-code-bucket/glue-apps/dev/price/temp/"
+            --bucket_name         : "aws-glue-target-poc-test"
+            --class               : "GlueApp"
+            --extra-py-files      : "s3://dpp-dev-glue-repository-test/cx_oracle_jar/cx_Oracle-8.3.0-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl,s3://dpp-dev-glue-repository-test/glue_python_libs/retl_component-1.0-py3-none-any.whl,s3://dpp-dev-glue-repository-test/glue_python_libs/python_dotenv-0.20.0-py3-none-any.whl,s3://dpp-dev-glue-repository-test/glue_python_libs/SQLAlchemy-1.4.35-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl,s3://dpp-dev-glue-repository-test/glue_python_libs/pandas-1.1.5-cp36-cp36m-manylinux1_x86_64.whl"
+            --extra-files         : "s3://dpp-dev-glue-repository-test/cx_oracle_jar/instantclient-basiclite-linuxx64_patched.zip"
+            --config_bucket_name  : "dpp-dev-glue-repository-test"
+            --config_file_path    : "rdw_etl_config/irm/org/"
+            --s3_file_path        : "RMS10PROMOTION/data/"
+            --s3_filename         : "prmschdm1"
+          MaxCapacity: 0.0625
+          MaxRetries: 0
+          Timeout: 2
+          Bucket_name: "aws-glue-assets-576277063358-eu-west-1-test"
+          File_name: "glue_shell_prdclsex_test4.py"
+      
