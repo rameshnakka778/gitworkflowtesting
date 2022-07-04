@@ -18,7 +18,7 @@ locals {
 
 }
 
-module "glue_jobs_deployments" {
+resource "aws_glue_job" "glue_job" {
 
     for_each = {for key, val in local.expanded_names: key => val}
 
@@ -41,57 +41,3 @@ module "glue_jobs_deployments" {
     ]
 }
 
-# module "glue_connection_vpc" {
-
-#     source                      = "./modules/AWS_GLUE_CONNECTION"
-#     create = var.create_connection
-#     name = var.conn_name
-#     url  = var.conn_url
-#     user = var.conn_user
-#     pass = var.conn_pass
-#     sg_ids = var.conn_sg_ids
-#     subnet = var.conn_subnet
-#     azs    = var.conn_azs
-#     type        = var.conn_type
-#     catalog_id  = var.conn_catalog_id
-#     description = var.conn_description
-#     criteria    = var.conn_criteria
-# }
-
-# module "glue_database" {
-
-#   source = "./modules/glue_database"
-#   create = var.create_database
-#   name = var.db_name
-#   description  = var.db_description
-#   catalog      = var.db_catalog_id
-#   location_uri = var.db_location_uri
-#   params       = var.db_params
-# }
-
-# module "glue_crawler" {
-
-#   source = "./modules/glue_crawler"
-#   create = var.create_crawler
-#   name = var.crawl_name
-#   db   = var.crawl_database
-#   role = var.crawl_role
-#   schedule     = var.crawl_schedule
-#   table_prefix = var.crawl_table_prefix
-#   s3_path      = var.crawl_s3_path
-# }
-
-# module "glue_job_trigger" {
-
-#   source = "./modules/glue_job_trigger"
-#   create = var.create_trigger
-#   name     = var.trigger_name
-#   schedule = var.trigger_schedule
-#   job_name = var.trigger_job
-#   trigger_type        = var.trigger_type
-#   enabled     = var.trigger_enabled
-#   description = var.trigger_description
-#   arguments   = var.trigger_arguments
-#   timeout     = var.trigger_timeout
-# }
-# end of the program

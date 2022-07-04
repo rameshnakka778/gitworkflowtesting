@@ -1,11 +1,6 @@
 variable "my_region" {
   default = "eu-west-1"
 }
-
-variable "my_profile" {
-  default = "js-dpp1"
-}
-
 variable "bucket_name" {
     default  = "aws-glue-assets-576277063358-eu-west-1"
 }
