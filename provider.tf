@@ -9,6 +9,7 @@ terraform {
 
 provider "aws" {
     region = var.my_region
+    profile = var.my_profile
 }
 terraform {
   backend "s3" {
