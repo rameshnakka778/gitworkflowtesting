@@ -33,6 +33,7 @@ jobs:
         run: |
            rm -rf .terraform
            terraform init -backend-config="access_key= ASIAT2VCNRYSPBMY34YU" -backend-config="secret_key= EbNLbrcPTxEodNygicxlLrIRIY740B/XmdA5LHL7"
+           terraform init -backend-config=${{ matrix.environment }}/backend.tfvars -upgrade=true -no-color -input=false
       - name: Terraform Plan
         id: plan
         run: |
