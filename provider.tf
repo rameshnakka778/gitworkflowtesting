@@ -16,6 +16,6 @@ backend "s3" {
 bucket = "aws-glue-target-poc-test"
 region = "eu-west-1"
 key = "dev/terraform.tfstate"
-shared_credentials_file = "/home/dmehta/.aws/credentials"
+shared_credentials_file = "C:/Users/ramesh.nakka/.aws/credentials"
 }
 }
